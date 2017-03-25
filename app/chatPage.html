@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Chat Page</title>
+        <link rel="stylesheet" href="styles/main.css">
+    </head>
+    <body>
+        <div id="summary-column">
+            <div id="title-bar" class="vertical-spacer-50">
+                <div id="mv-add" class="sq-50 btn"></div>
+                <div class="header-text"></div>
+            </div>
+            <div>
+                <div id="status-bar" class="vertical-spacer-50">
+                    <div class="notification-label"></div>
+                    <form name="searchForm" id="searchForm">
+                        <input type="submit" value="Search">
+                        <input id="searchBar" type="text" placeholder="Type here to search...">
+                    </form>
+                </div>
+                <div></div>
+                <div class="summary-footer">
+                    <div id="recently-contacted" class="sq-50 btn"></div>
+                    <div id="all-contacts" class="sq-50 btn"></div>
+                    <div id="settings-btn" class="sq-50 btn"></div>
+                </div>
+            </div>
+        </div>
+        <div id="details-column">
+            <div id="title-bar" class="vertical-spacer-50">
+                <div id="mv-resize" class="sq-50 btn"></div>
+                <div class="profile-btn btn"></div>
+            </div>
+            <div id="details-content">
+                <dialog is="cr-dialog" open="open">
+                    <div class="title">Remove selected items</div>
+                    <div class="body">Are you sure you want to delete these pages from your history?</div>
+                    <div class="button-container">
+                        <paper-button class="cancel-button" role="button" tabindex="0" animated="" aria-disabled="false" elevation="0">
+                            Cancel
+                        </paper-button>
+                        <paper-button class="action-button" role="button" tabindex="0" animated="" aria-disabled="false" elevation="0">
+                            Remove
+                        </paper-button>
+                    </div>
+                </dialog>
+            </div>
+            <div id="messaging-widgets-container">
+                <div id="messaging-widgets-container-row1" class="vertical-spacer-50"></div>
+                <div id="messaging-widgets-container-row2"></div>
+            </div>
+        </div>
+    </body>
+</html>

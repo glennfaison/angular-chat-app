@@ -1,0 +1,61 @@
+.msgbubble{
+	outline: none;
+	padding: 10px;
+	clear: both;
+}
+.msgbubble .author-img{
+	height: 30px;
+	width: 30px;
+	vertical-align: middle;
+	border-radius: 100%;
+}
+.msgbubble .tail{
+	outline: none;
+	height: 20px;
+	width: 10px;
+	background: lightgreen;
+}
+.msgbubble .tail > div{
+	outline: none;
+	height: 100%;
+	width: 100%;
+	background: white;
+}
+.msgbubble .text{
+	outline: none;
+	background: lightgreen;
+	padding: 5px;
+	border-radius: 5px;
+	min-width: 50px;
+	max-width: 80%;
+}
+
+
+.msgbubble.left .author-img{
+	float: left;
+}
+.msgbubble.left .tail{
+	float: left;
+}
+.msgbubble.left .tail > div{
+	border-top-right-radius: 10px 10px;
+}
+.msgbubble.left .text{
+	float: left;
+	border-top-left-radius: 0;
+}
+
+
+.msgbubble.right .author-img{
+	float: right;
+}
+.msgbubble.right .tail{
+	float: right;
+}
+.msgbubble.right .tail > div{
+	border-top-left-radius: 10px 10px;
+}
+.msgbubble.right .text{
+	float: right;
+	border-top-right-radius: 0;
+}

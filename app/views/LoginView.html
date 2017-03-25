@@ -1,0 +1,25 @@
+<div class="fill">
+	<div class="login-panel">
+		<div id="notification-div" ng-show="loginCtrl.errorMessage !== ''">
+			<div class="notification-text" ng-bind="loginCtrl.errorMessage"></div>
+			<div class="mv-x"
+				 title="hide this notification"
+				 id="close-notification"
+				 role="button"
+				 ng-click="loginCtrl.resetLoginForm()"></div>
+		</div>
+		<div>
+			<div class="vertical-spacer-50"></div>
+			<div class="login-form-container">
+				<form name="loginForm" id="login-form" ng-submit="loginCtrl.login()">
+					<label for="username">Username:</label><br/>
+					<input type="text" tabIndex="1" name="username" ng-model="loginCtrl.loginForm.username"/><br/>
+					<label for="password">Password:</label><br/>
+					<input type="password" tabIndex="2" name="password" ng-model="loginCtrl.loginForm.password"/><br/>
+					<input type="submit" value="login"/>
+				</form>
+			</div>
+			<div class="vertical-spacer-50"></div>
+		</div>
+	</div>
+</div>

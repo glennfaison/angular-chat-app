@@ -1,0 +1,103 @@
+<div>
+    <div id="summary-column">
+        <div id="title-bar" class="vertical-spacer-50">
+            <div id="mv-add" class="sq-50 btn"></div>
+            <div class="header-text" ng-bind="chatPageCtrl.currentTab"></div>
+        </div>
+        <div>
+            <div id="status-bar" class="vertical-spacer-50">
+                <div id="notification-div"></div>
+                <form name="searchForm" id="searchForm">
+                    <input type="submit" value="Search">
+                    <input id="searchBar" type="text" placeholder="Type here to search...">
+                </form>
+            </div>
+            <div>
+                <div class="tab-widget" ng-switch="chatPageCtrl.currentTab">
+                    <div ng-switch-when="Recently Contacted">
+                        <div ng-repeat="user in chatPageCtrl.getRecentlyContacted()">
+                            <div class="summary-card" ng-click="chatPageCtrl.setCurrentChat(user)">
+                                <img class="summary-pic" src="images/default_profile_picture.png"></img>
+                                <div>
+                                    <div ng-bind="user.username"></div>
+                                    <div ng-bind="chatPageCtrl.getLastMessageInThreadWithUser(user.id).messageText"></div>
+                                    <div>Time details</div>
+                                </div>
+                            </div>
+                            <div class="vertical-spacer-5"></div>
+                        </div>
+                    </div>
+                    <div ng-switch-when="All Contacts">
+                        <div ng-repeat="user in chatPageCtrl.getAllContacts()">
+                            <div class="summary-card" ng-click="chatPageCtrl.setCurrentChat(user)">
+                                <img class="summary-pic" src="images/default_profile_picture.png"></img>
+                                <div>
+                                    <div ng-bind="user.username"></div>
+                                    <div ng-bind="chatPageCtrl.getLastMessageInThreadWithUser(user.id).messageText"></div>
+                                    <div>Time details</div>
+                                </div>
+                            </div>
+                            <div class="vertical-spacer-5"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="summary-footer">
+                <div id="recently-contacted"
+                     class="sq-50 btn"
+                     title="Recently Contacted"
+                     ng-click="chatPageCtrl.setTab('Recently Contacted')">⏰</div>
+                <div id="all-contacts"
+                     class="sq-50 btn"
+                     title="All Contacts"
+                     ng-click="chatPageCtrl.setTab('All Contacts')"></div>
+                <div id="settings-btn"
+                     class="sq-50 btn"
+                     title="Settings"
+                     ng-click="chatPageCtrl.setTab('tab3')"></div>
+            </div>
+        </div>
+    </div>
+    <div id="details-column">
+        <div id="title-bar" class="vertical-spacer-50">
+            <div id="mv-resize" class="sq-50 btn"></div>
+            <div class="profile-btn btn" ng-show="chatPageCtrl.currentChat">
+                <div>
+                    <div ng-bind="chatPageCtrl.currentChat.username"></div>
+                    <div>18hrs ago</div>
+                </div>
+                <img src="images/default_profile_picture.png"></img>
+            </div>
+        </div>
+        <div id="details-content">
+            <div id="details-content-box">
+                <div ng-repeat="message in chatPageCtrl.getMessageThreadWithUser(chatPageCtrl.currentChat.id)"
+                     style="outline: none;">
+                    <div ng-class="(message.senderId !== chatPageCtrl.getCurrentUser().id) ? 'msgbubble left' : 'msgbubble right'">
+                        <img ng-src="{{chatPageCtrl.getUserById(message.senderId).imagePath}}" class="author-img"></img>
+                        <div class="tail">
+                            <div></div>
+                        </div>
+                        <div class="text" ng-bind="message.messageText"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="messaging-widgets-container">
+            <div id="messaging-widgets-container-row1">
+                <input id="messageBox"
+                       type="textarea"
+                       placeholder="Type in your message..."
+                       ng-model="chatPageCtrl.messageForm.messageText"></input>
+            </div>
+            <div id="messaging-widgets-container-row2">
+                <div class="sq-50 btn"
+                     ng-click="chatPageCtrl.sendMessage()"></div>
+                <div class="sq-50 btn"></div>
+                <div class="sq-50 btn"></div>
+                <div class="sq-50 btn"></div>
+                <div class="sq-50 btn"></div>
+            </div>
+        </div>
+    </div>
+</div>
